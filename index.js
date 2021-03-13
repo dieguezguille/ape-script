@@ -46,38 +46,38 @@ function calculateLpTvl(
   return firstTokenQty * firstTokenPrice + secondTokenQty * secondTokenPrice;
 }
 
-// axios
-//   .get("https://yw-prices.herokuapp.com/api/prices")
-//   .then(function (response) {
-//     SOUP_PRICE = response.data.prices.SOUP;
-//     WBNB_PRICE = response.data.prices.WBNB;
-//     showPrice("SOUP", SOUP_PRICE);
-//     showPrice("WBNB", WBNB_PRICE);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
+axios
+  .get("https://yw-prices.herokuapp.com/api/prices")
+  .then(function (response) {
+    SOUP_PRICE = response.data.prices.SOUP;
+    WBNB_PRICE = response.data.prices.WBNB;
+    showPrice("SOUP", SOUP_PRICE);
+    showPrice("WBNB", WBNB_PRICE);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 
-// axios
-//   .get("https://api.beefy.finance/lps")
-//   .then(function (response) {
-//     SOUP_BNB_LP_PRICE = response.data["soup-soup-bnb"];
-//     showPrice("SOUP-BNB LP", SOUP_BNB_LP_PRICE);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
+axios
+  .get("https://api.beefy.finance/lps")
+  .then(function (response) {
+    SOUP_BNB_LP_PRICE = response.data["soup-soup-bnb"];
+    showPrice("SOUP-BNB LP", SOUP_BNB_LP_PRICE);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 
-// axios
-//   .get(`https://yieldwatch.net/api/all/${WALLET_ADDRESS}?platforms=beefy`)
-//   .then(function (response) {
-//     SOUP_QTY = response.data.result.BeefyFinance.LPVaults.vaults[1].LPInfo.poolToken0;
-//     WBNB_QTY = response.data.result.BeefyFinance.LPVaults.vaults[1].LPInfo.poolToken1;
-//     showPoolTokensQty("SOUP", roundValue(SOUP_QTY));
-//     showPoolTokensQty("WBNB", roundValue(WBNB_QTY));
+axios
+  .get(`https://yieldwatch.net/api/all/${WALLET_ADDRESS}?platforms=beefy`)
+  .then(function (response) {
+    SOUP_QTY = response.data.result.BeefyFinance.LPVaults.vaults[1].LPInfo.poolToken0;
+    WBNB_QTY = response.data.result.BeefyFinance.LPVaults.vaults[1].LPInfo.poolToken1;
+    showPoolTokensQty("SOUP", roundValue(SOUP_QTY));
+    showPoolTokensQty("WBNB", roundValue(WBNB_QTY));
 
-//     showTvl("SOUP-BNB LP", SOUP_QTY, SOUP_PRICE, WBNB_QTY, WBNB_PRICE);
-//   })
-//   .catch(function (error) {
-//     console.log(error);
-//   });
+    showTvl("SOUP-BNB LP", SOUP_QTY, SOUP_PRICE, WBNB_QTY, WBNB_PRICE);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
